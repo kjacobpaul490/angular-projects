@@ -1,0 +1,61 @@
+<p>gender-based-product works!</p>
+<!-- Gender Toggle Switch styled like Electric Xtra template -->
+<!-- Gender Toggle Switch (move all CSS to .css file) -->
+<div class="gender-toggle-container">
+  <div class="gender-toggle">
+    <input type="radio" id="male" name="gender" [(ngModel)]="selectedGender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" [(ngModel)]="selectedGender" value="female">
+    <label for="female">Female</label>
+    <div class="toggle-bg"
+         [style.transform]="selectedGender === 'female' ? 'translateX(120px)' : 'translateX(0)'"></div>
+  </div>
+</div>
+<div class="product-select-container" style="text-align:center; margin-top:2rem;">
+  <label for="productSelect" style="font-weight:600; margin-right:1rem;">Select Product:</label>
+  <select id="productSelect" [(ngModel)]="selectedProduct">
+    <option *ngFor="let product of getFilteredProducts()" 
+            [value]="product.Name">
+      {{ product.Name }}
+    </option>
+  </select>
+</div>
+
+<div class="product-card-container" style="display: flex; justify-content: center; margin-top: 2rem;">
+  <ng-container *ngIf="selectedProduct">
+    <ng-container *ngFor="let product of getFilteredProducts()">
+      <ng-container *ngIf="product.Name === selectedProduct">
+        <div [ngSwitch]="product.Category" class="product-card" style="min-width: 280px; max-width: 350px; padding: 1.5rem; border-radius: 18px; box-shadow: 0 4px 18px rgba(0,0,0,0.10); margin: 0 auto; text-align: center;">
+          <!-- Premium Card -->
+          <div *ngSwitchCase="'premium'" style="background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%); color: #333; border: 2px solid #ffd700;">
+            <h2 style="margin-bottom: 0.5rem;">
+              <span style="font-size: 1.5rem; vertical-align: middle;">&#11088;</span>
+              {{ product.Name }}
+              <span style="font-size: 1.5rem; vertical-align: middle;">&#11088;</span>
+            </h2>
+            <p style="font-weight: 600; margin-bottom: 0.5rem;">Category: <span style="color: #b8860b;">Premium</span></p>
+            <p style="margin-bottom: 0;">Gender: {{ product.Gender | titlecase }}</p>
+          </div>
+          <!-- Normal Card -->
+          <div *ngSwitchCase="'normal'" style="background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); color: #444; border: 2px solid #bdbdbd;">
+            <h2 style="margin-bottom: 0.5rem;">
+              {{ product.Name }}
+            </h2>
+            <p style="font-weight: 600; margin-bottom: 0.5rem;">Category: <span style="color: #757575;">Normal</span></p>
+            <p style="margin-bottom: 0;">Gender: {{ product.Gender | titlecase }}</p>
+          </div>
+          <!-- Fallback (if any other category) -->
+          <div *ngSwitchDefault style="background: #fff3cd; color: #856404; border: 2px solid #ffeeba;">
+            <h2>{{ product.Name }}</h2>
+            <p>Category: {{ product.Category }}</p>
+            <p>Gender: {{ product.Gender | titlecase }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+
+
+<!-- Optionally, include FontAwesome for icons if not already present -->
+<!-- Moved FontAwesome link to gender-based-product.css as instructed -->

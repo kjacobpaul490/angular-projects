@@ -1,0 +1,182 @@
+.disabled {
+  opacity: 0.5;
+  color: #6c757d;
+  text-decoration: line-through;
+  pointer-events: none;
+}
+
+/* General styling */
+.section {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.section h2 {
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* *ngIf styles */
+.details {
+  background-color: #e7f3ff;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+  border-left: 4px solid #007bff;
+}
+
+.success {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.error {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  border: 1px solid #f5c6cb;
+}
+
+/* *ngFor styles */
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.user-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+}
+
+.user-card h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.user-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Role-based styling */
+.admin {
+  background-color: #dc3545 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.moderator {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+  font-weight: bold;
+}
+
+.user {
+  background-color: #28a745 !important;
+  color: white !important;
+}
+
+/* *ngSwitch styles */
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.nav-buttons button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.content-area {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 15px 0;
+}
+
+.content h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.role-selector {
+  margin: 15px 0;
+}
+
+.role-selector label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.role-selector select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.role-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 15px 0;
+}
+
+.admin-panel {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+}
+
+.moderator-panel {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+.user-panel {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+}
+
+.role-content ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.role-content li {
+  margin: 5px 0;
+}

@@ -1,0 +1,142 @@
+<!-- Original Property Binding Example -->
+<div class="section">
+  <h2>Property Binding Example</h2>
+  <input type="number" [(ngModel)]="oddNumber" (blur)="onBlur($event)" />
+  <p [ngStyle]="{'color': isDisabled ? 'red' : 'black'}">Is Disabled: {{isDisabled}}</p>
+</div>
+
+<!-- *ngIf Directive Examples -->
+<div class="section">
+  <h2>*ngIf Directive Examples</h2>
+  
+  <!-- Basic *ngIf -->
+  <button (click)="toggleDetails()">Toggle Details</button>
+  <div *ngIf="showDetails" class="details">
+    <h3>Details are now visible!</h3>
+    <p>This content is shown/hidden based on the showDetails property.</p>
+  </div>
+  
+  <!-- *ngIf with else -->
+  <div *ngIf="hasPermission; else noPermission">
+    <p class="success">✅ You have permission to access this content.</p>
+  </div>
+  <ng-template #noPermission>
+    <p class="error">❌ You don't have permission to access this content.</p>
+  </ng-template>
+  
+  <!-- *ngIf for error handling -->
+  <button (click)="simulateError()">Simulate Error</button>
+  <div *ngIf="errorMessage" class="error-message">
+    {{errorMessage}}
+  </div>
+</div>
+
+<!-- *ngFor Directive Examples -->
+<div class="section">
+  <h2>*ngFor Directive Examples</h2>
+  
+  <!-- Simple array iteration -->
+  <h3>Fruits List:</h3>
+  <ul>
+    <li *ngFor="let item of items; let i = index">
+      {{i + 1}}. {{item}}
+    </li>
+  </ul>
+  
+  <!-- Object array iteration with trackBy -->
+  <h3>Users List:</h3>
+  <div class="users-grid">
+    <div *ngFor="let user of users; trackBy: trackByUserId" class="user-card">
+      <h4>{{user.name}}</h4>
+      <p>ID: {{user.id}}</p>
+      <p>Role: {{user.role}}</p>
+    </div>
+  </div>
+  
+  <!-- *ngFor with conditional styling -->
+  <h3>Users with Conditional Styling:</h3>
+  <ul>
+    <li *ngFor="let user of users" 
+        [class.admin]="user.role === 'Admin'"
+        [class.moderator]="user.role === 'Moderator'"
+        [class.user]="user.role === 'User'">
+      {{user.name}} - {{user.role}}
+    </li>
+  </ul>
+</div>
+
+<!-- *ngSwitch Directive Examples -->
+<div class="section">
+  <h2>*ngSwitch Directive Examples</h2>
+  
+  <!-- Navigation example -->
+  <h3>Dynamic Navigation:</h3>
+  <div class="nav-buttons">
+    <button (click)="changeView('home')" [class.active]="currentView === 'home'">Home</button>
+    <button (click)="changeView('about')" [class.active]="currentView === 'about'">About</button>
+    <button (click)="changeView('contact')" [class.active]="currentView === 'contact'">Contact</button>
+    <button (click)="changeView('products')" [class.active]="currentView === 'products'">Products</button>
+  </div>
+  
+  <div [ngSwitch]="currentView" class="content-area">
+    <div *ngSwitchCase="'home'" class="content">
+      <h4>🏠 Home Page</h4>
+      <p>Welcome to our homepage! This content is displayed when home is selected.</p>
+    </div>
+    <div *ngSwitchCase="'about'" class="content">
+      <h4>ℹ️ About Page</h4>
+      <p>Learn more about us and our company history.</p>
+    </div>
+    <div *ngSwitchCase="'contact'" class="content">
+      <h4>📞 Contact Page</h4>
+      <p>Get in touch with us through our contact form.</p>
+    </div>
+    <div *ngSwitchCase="'products'" class="content">
+      <h4>🛍️ Products Page</h4>
+      <p>Browse our amazing product catalog.</p>
+    </div>
+    <div *ngSwitchDefault class="content">
+      <h4>❓ Unknown Page</h4>
+      <p>This is the default case for unknown views.</p>
+    </div>
+  </div>
+  
+  <!-- Role-based content example -->
+  <h3>Role-based Content:</h3>
+  <div class="role-selector">
+    <label>Select Role: </label>
+    <select [(ngModel)]="userRole" (change)="setUserRole(userRole)">
+      <option value="Admin">Admin</option>
+      <option value="Moderator">Moderator</option>
+      <option value="User">User</option>
+    </select>
+  </div>
+  
+  <div [ngSwitch]="userRole" class="role-content">
+    <div *ngSwitchCase="'Admin'" class="admin-panel">
+      <h4>🔐 Admin Panel</h4>
+      <ul>
+        <li>Manage all users</li>
+        <li>Access system settings</li>
+        <li>View analytics dashboard</li>
+        <li>Delete content</li>
+      </ul>
+    </div>
+    <div *ngSwitchCase="'Moderator'" class="moderator-panel">
+      <h4>🛡️ Moderator Panel</h4>
+      <ul>
+        <li>Moderate user content</li>
+        <li>View reports</li>
+        <li>Manage comments</li>
+      </ul>
+    </div>
+    <div *ngSwitchCase="'User'" class="user-panel">
+      <h4>👤 User Panel</h4>
+      <ul>
+        <li>View profile</li>
+        <li>Edit personal information</li>
+        <li>Change password</li>
+      </ul>
+    </div>
+  </div>
+</div>

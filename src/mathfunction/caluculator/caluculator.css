@@ -1,0 +1,53 @@
+/* Event Binding Demo Styles */
+.mouse-area {
+  width: 200px;
+  height: 100px;
+  border: 2px solid #007bff;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.mouse-area:hover {
+  background-color: #e9ecef;
+}
+
+h3 {
+  color: #495057;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  margin: 5px 0;
+  padding: 5px;
+  background-color: #f8f9fa;
+  border-left: 3px solid #007bff;
+  padding-left: 10px;
+}

@@ -1,21 +1,58 @@
-<h1>Calculator</h1>
+<h1>Calculator - Event Binding Examples</h1>
 
+<!-- Basic Event Binding (already implemented) -->
+<h3>1. Basic Event Binding</h3>
 <input id="txtnum1" type="number" [(ngModel)]="num1" />
 <input id="txtnum2" type="number" [(ngModel)]="num2" />
 <button id="btnadd" (click)="add()">Add</button>
 <button id="btnsubtract" (click)="subtract()">Subtract</button>
 <button id="btnmultiply" (click)="multiply()">Multiply</button>
 <button id="btndivide" (click)="divide()">Divide</button>
-<p id="txtresult">The result is {{result
-    
 
+<!-- Event Binding with Event Object -->
+<h3>2. Event Binding with Event Object</h3>
+<input type="text" placeholder="Type here" (input)="onInput($event)" />
+<p>Last input: {{lastInput}}</p>
 
+<!-- Event Binding with Event Target -->
+<h3>3. Event Binding with Event Target</h3>
+<input type="text" placeholder="Type and press Enter" (keyup.enter)="onEnter($event.target.value)" />
+<p>Entered value: {{enteredValue}}</p>
 
+<!-- Template Reference Variables with Events -->
+<h3>4. Template Reference Variables with Events</h3>
+<input #myInput type="text" placeholder="Type here" (input)="onTemplateInput(myInput.value)" />
+<p>Template input value: {{templateInputValue}}</p>
 
+<!-- Event Binding with Multiple Parameters -->
+<h3>5. Event Binding with Multiple Parameters</h3>
+<button (click)="calculateWithParams('add', num1, num2, $event)">Calculate Add with Params</button>
+<button (click)="calculateWithParams('multiply', num1, num2, $event)">Calculate Multiply with Params</button>
 
+<!-- Mouse Events -->
+<h3>6. Mouse Events</h3>
+<div class="mouse-area" 
+     (mouseenter)="onMouseEnter()" 
+     (mouseleave)="onMouseLeave()" 
+     (mousedown)="onMouseDown($event)"
+     (mouseup)="onMouseUp($event)">
+  Hover and click me! ({{mouseStatus}})
+</div>
 
+<!-- Keyboard Events -->
+<h3>7. Keyboard Events</h3>
+<input type="text" 
+       placeholder="Try different keys" 
+       (keydown)="onKeyDown($event)" 
+       (keyup)="onKeyUp($event)" />
+<p>Last key pressed: {{lastKey}}</p>
 
+<!-- Focus Events -->
+<h3>8. Focus Events</h3>
+<input type="text" 
+       placeholder="Click in and out" 
+       (focus)="onFocus()" 
+       (blur)="onBlur()" />
+<p>Focus status: {{focusStatus}}</p>
 
-
-
-}}</p>
+<p id="txtresult">The result is {{result}}</p>
