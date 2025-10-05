@@ -1,0 +1,286 @@
+/* Math Counter Component Styles */
+.counter-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.counter-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 300;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Counter Display */
+.counter-display {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.counter-display h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.counter-value {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Counter Controls */
+.counter-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.counter-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 140px;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.increment-btn {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+
+.increment-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.decrement-btn {
+  background: linear-gradient(135deg, #f44336, #da190b);
+  color: white;
+}
+
+.decrement-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+}
+
+.btn-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Input Controls */
+.step-control,
+.manual-input {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.step-control label,
+.manual-input label {
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.step-input,
+.manual-input-field {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  min-width: 150px;
+  transition: all 0.3s ease;
+}
+
+.step-input:focus,
+.manual-input-field:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+  transform: scale(1.02);
+}
+
+.set-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.set-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+}
+
+/* Reset Section */
+.reset-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.reset-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #FF9800, #F57C00);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+/* Quick Steps */
+.quick-steps {
+  text-align: center;
+}
+
+.quick-steps h4 {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.step-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.step-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.step-btn:hover {
+  background: rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.5);
+  transform: translateY(-2px);
+}
+
+.step-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .counter-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .counter-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .counter-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .step-control,
+  .manual-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .step-control label,
+  .manual-input label {
+    text-align: center;
+    min-width: auto;
+  }
+  
+  .step-input,
+  .manual-input-field {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .step-buttons {
+    gap: 0.25rem;
+  }
+  
+  .step-btn {
+    flex: 1;
+    min-width: 60px;
+  }
+}
+
+/* Animation for counter value changes */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.counter-value.animate {
+  animation: pulse 0.3s ease-in-out;
+}
+
+/* Focus and accessibility improvements */
+.counter-btn:focus,
+.set-btn:focus,
+.reset-btn:focus,
+.step-btn:focus {
+  outline: 2px solid rgba(255,255,255,0.5);
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.counter-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.counter-btn:disabled:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+

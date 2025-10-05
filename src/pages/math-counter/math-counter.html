@@ -1,0 +1,61 @@
+<div class="counter-container">
+  <h2>Math Counter</h2>
+  
+  <!-- Counter Display -->
+  <div class="counter-display">
+    <h3>Current Value: <span class="counter-value">{{ counter }}</span></h3>
+  </div>
+
+  <!-- Counter Controls -->
+  <div class="counter-controls">
+    <button class="counter-btn decrement-btn" (click)="decrement()">
+      <span class="btn-icon">−</span>
+      Decrease
+    </button>
+    
+    <button class="counter-btn increment-btn" (click)="increment()">
+      <span class="btn-icon">+</span>
+      Increase
+    </button>
+  </div>
+
+  <!-- Step Control -->
+  <div class="step-control">
+    <label for="step">Step Size:</label>
+    <input 
+      type="number" 
+      id="step" 
+      [(ngModel)]="step" 
+      min="1" 
+      class="step-input"
+      placeholder="Enter step size">
+  </div>
+
+  <!-- Manual Input -->
+  <div class="manual-input">
+    <label for="manualValue">Set Value:</label>
+    <input 
+      type="number" 
+      id="manualValue" 
+      [(ngModel)]="inputValue" 
+      class="manual-input-field"
+      placeholder="Enter value">
+    <button class="set-btn" (click)="setValue()">Set</button>
+  </div>
+
+  <!-- Reset Button -->
+  <div class="reset-section">
+    <button class="reset-btn" (click)="reset()">Reset to 0</button>
+  </div>
+
+  <!-- Quick Step Buttons -->
+  <div class="quick-steps">
+    <h4>Quick Steps:</h4>
+    <div class="step-buttons">
+      <button class="step-btn" (click)="setStep(1)">Step 1</button>
+      <button class="step-btn" (click)="setStep(5)">Step 5</button>
+      <button class="step-btn" (click)="setStep(10)">Step 10</button>
+      <button class="step-btn" (click)="setStep(100)">Step 100</button>
+    </div>
+  </div>
+</div>

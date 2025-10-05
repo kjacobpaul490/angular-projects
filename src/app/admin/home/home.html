@@ -1,0 +1,66 @@
+<div class="home-container">
+  <h2>Admin Home</h2>
+  <p>Fill out the form below to navigate to the About page with your information:</p>
+  
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="user-form">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        [(ngModel)]="name" 
+        required 
+        class="form-control"
+        placeholder="Enter your name">
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        [(ngModel)]="email" 
+        required 
+        class="form-control"
+        placeholder="Enter your email">
+    </div>
+    
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input 
+        type="number" 
+        id="age" 
+        name="age" 
+        [(ngModel)]="age" 
+        min="1" 
+        max="120" 
+        required 
+        class="form-control"
+        placeholder="Enter your age">
+    </div>
+    
+    <div class="form-actions">
+      <button 
+        type="submit" 
+        [disabled]="!userForm.form.valid" 
+        class="btn btn-primary">
+        Go to About Page
+      </button>
+      <button 
+        type="button" 
+        (click)="onReset()" 
+        class="btn btn-secondary">
+        Reset Form
+      </button>
+    </div>
+  </form>
+  
+  <div class="form-info" *ngIf="name || email || age">
+    <h3>Current Form Data:</h3>
+    <p><strong>Name:</strong> {{ name || 'Not provided' }}</p>
+    <p><strong>Email:</strong> {{ email || 'Not provided' }}</p>
+    <p><strong>Age:</strong> {{ age || 'Not provided' }}</p>
+  </div>
+</div>

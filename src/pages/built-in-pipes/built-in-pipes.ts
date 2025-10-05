@@ -10,7 +10,7 @@ import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProv
 })
 export class BuiltInPipes {
   today: Date = new Date();
-  gender = 'male';
+  gender = 'ghjgjh';
   inviteMap = {
     male: 'Invite him',
     female: 'Invite her',

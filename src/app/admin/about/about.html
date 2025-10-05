@@ -1,0 +1,27 @@
+<div class="about-container">
+  <h2>About Page</h2>
+
+  <div class="query-params" *ngIf="name || email">
+    <h3>Query Parameters:</h3>
+    <p *ngIf="name"><strong>Name:</strong> {{ name }}</p>
+    <p *ngIf="email"><strong>Email:</strong> {{ email }}</p>
+    <p *ngIf="age"><strong>age:</strong> {{ age }}</p>
+  </div>
+
+  <div class="no-params" *ngIf="!name && !email">
+    <p>No query parameters provided.</p>
+    <p>Try visiting: <code>/admin/about?name=John&email=john@example.com</code></p>
+  </div>
+
+  <div class="example-links">
+    <h3>Example Links with Query Parameters:</h3>
+    <ul>
+      <li><a routerLink="/admin/about" [queryParams]="{name: 'jacob Doe', email: 'john@example.com'}">About with jacob's
+          info</a></li>
+      <li><a routerLink="/admin/about" [queryParams]="{name: 'Jane Smith', email: 'jane@example.com'}">About with Jane's
+          info</a></li>
+      <li><a routerLink="/admin/about" [queryParams]="{name: 'Bob Wilson'}">About with name only</a></li>
+      <li><a routerLink="/admin/about" [queryParams]="{email: 'admin@example.com'}">About with email only</a></li>
+    </ul>
+  </div>
+</div>

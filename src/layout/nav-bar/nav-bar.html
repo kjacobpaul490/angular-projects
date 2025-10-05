@@ -1,0 +1,15 @@
+
+<nav>
+  <h1>{{title}}</h1>
+  <ul>
+    <li><a routerLink="/math-counter" routerLinkActive="active">Math Counter</a></li>
+    <li><a routerLink="/calculator" routerLinkActive="active">Calculator</a></li>
+    <li><a routerLink="/property-binding" routerLinkActive="active">Property Binding</a></li>
+    <li><a routerLink="/gender-based-product" routerLinkActive="active">Gender Based Product</a></li>
+    <li><a routerLink="/built-in-pipes" routerLinkActive="active">Built-in Pipes</a></li>
+    <li><a routerLink="/users-list" routerLinkActive="active">Users List</a></li>
+    <li><a routerLink="/hooks" routerLinkActive="active">Lifecycle Hooks</a></li>
+    <li><a routerLink="/admin" routerLinkActive="active">Admin Home</a></li>
+    <li><a routerLink="/admin/about" [queryParams]="{name: 'Admin User', email: 'admin@example.com'}" routerLinkActive="active">Admin About</a></li>
+  </ul>
+</nav>
