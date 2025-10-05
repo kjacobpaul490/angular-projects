@@ -22,5 +22,9 @@ export const routes: Routes = [
     path: 'hooks', 
     loadChildren: () => import('./../lifecycle-hook/lifecycle-hook-module').then(m => m.LifecycleHookModule) 
   },
+  { 
+    path: 'template-driven-form', 
+    loadChildren: () => import('./../template-driven-form/template-driven-form-module').then(m => m.TemplateDrivenFormModule) 
+  },
   { path: '**', redirectTo: '/math-counter' } // Wildcard route for 404 pages
 ];

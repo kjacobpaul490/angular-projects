@@ -1,0 +1,80 @@
+<div class="container" style="max-width: 640px; margin: 16px auto;">
+  <h2>Template-driven Form</h2>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Name -->
+    <div class="form-field" style="margin-bottom:12px;">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" [(ngModel)]="user.name" required minlength="2" #nameCtrl="ngModel" />
+      {{nameCtrl.touched}} {{nameCtrl.dirty}} 
+      <!-- Errors -->
+      <div class="error" *ngIf="nameCtrl.invalid && (nameCtrl.dirty || nameCtrl.touched)">
+        <small *ngIf="nameCtrl.errors?.['required']">Name is required.</small>
+        <small *ngIf="nameCtrl.errors?.['minlength']">Name must be at least 2 characters.</small>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-field" style="margin-bottom:12px;">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" [(ngModel)]="user.email" required email #emailCtrl="ngModel" />
+      <div class="error" *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)">
+        <small *ngIf="emailCtrl.errors?.['required']">Email is required.</small>
+        <small *ngIf="emailCtrl.errors?.['email']">Enter a valid email.</small>
+      </div>
+    </div>
+
+    <!-- Age -->
+    <div class="form-field" style="margin-bottom:12px;">
+      <label for="age">Age</label>
+      <input id="age" name="age" type="number" [(ngModel)]="user.age" required min="1" max="120" #ageCtrl="ngModel" />
+      <div class="error" *ngIf="ageCtrl.invalid && (ageCtrl.dirty || ageCtrl.touched)">
+        <small *ngIf="ageCtrl.errors?.['required']">Age is required.</small>
+        <small *ngIf="ageCtrl.errors?.['min']">Minimum age is 1.</small>
+        <small *ngIf="ageCtrl.errors?.['max']">Maximum age is 120.</small>
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="form-field" style="margin-bottom:12px;">
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" [(ngModel)]="user.gender" required #genderCtrl="ngModel">
+        <option value="" disabled selected>Select gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <div class="error" *ngIf="genderCtrl.invalid && (genderCtrl.dirty || genderCtrl.touched)">
+        <small *ngIf="genderCtrl.errors?.['required']">Gender is required.</small>
+      </div>
+    </div>
+
+    <!-- Terms -->
+    <div class="form-field" style="margin-bottom:12px;">
+      <label>
+        <input type="checkbox" name="terms" [(ngModel)]="user.termsAccepted" required #termsCtrl="ngModel" />
+        I agree to the terms and conditions
+      </label>
+      <div class="error" *ngIf="termsCtrl.invalid && (termsCtrl.dirty || termsCtrl.touched)">
+        <small *ngIf="termsCtrl.errors?.['required']">You must accept the terms.</small>
+      </div>
+    </div>
+
+    <!-- Form level state -->
+    <div style="margin: 12px 0;">
+      <small>Form valid: {{ f.valid }}</small> |
+      <small>Form dirty: {{ f.dirty }}</small>
+    </div>
+
+    <div style="display:flex; gap:8px;">
+      <button type="submit" [disabled]="f.invalid">Submit</button>
+      <button type="button" (click)="resetFormModel(); f.resetForm({})">Reset</button>
+    </div>
+  </form>
+
+  <!-- Submitted preview -->
+  <div *ngIf="submittedData" style="margin-top:16px; padding:12px; border:1px solid #ddd;">
+    <h3>Submitted</h3>
+    <pre>{{ submittedData | json }}</pre>
+  </div>
+</div>
