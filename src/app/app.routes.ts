@@ -26,5 +26,9 @@ export const routes: Routes = [
     path: 'template-driven-form', 
     loadChildren: () => import('./../template-driven-form/template-driven-form-module').then(m => m.TemplateDrivenFormModule) 
   },
+  { 
+    path: 'reactive-form', 
+    loadChildren: () => import('./../reactive-form/reactive-form-module').then(m => m.ReactiveFormModule) 
+  },
   { path: '**', redirectTo: '/math-counter' } // Wildcard route for 404 pages
 ];
